@@ -28,12 +28,10 @@ export class HomeProfilePage implements OnInit {
     }
   ];
 
- 
-
-   openModal(characterNum: int) {
+   openModal(characterNum: number) {
    	
    	 console.log(characterNum);
-   	if(characterNum== "0"){
+   	if(characterNum== 0){
    		this.router.navigate(['/basicData']);
    	}if(characterNum==1){
    		this.router.navigate(['/contactInformation']);

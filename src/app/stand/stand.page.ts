@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./stand.page.scss'],
 })
 export class StandPage implements OnInit {
+  private _title: string = "Puesto";
 
   constructor(private router: Router) { }
 

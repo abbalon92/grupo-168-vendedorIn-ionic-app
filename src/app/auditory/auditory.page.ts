@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckSellerPage } from '../check-seller/check-seller.page';
 
 @Component({
   selector: 'app-auditory',
@@ -8,12 +7,16 @@ import { CheckSellerPage } from '../check-seller/check-seller.page';
 })
 export class AuditoryPage implements OnInit {
 
-  modulos:Array<{name:string,component:any}>;
+  modulos:Array<{
+		name:string,
+		pagina:string,
+		imagen:string
+	}>;
   title:string = "Auditorias";
    
   constructor() {
   	this.modulos=[
-		{name:"comprobar certificado",component:CheckSellerPage}
+		{name:"Comprobar certificado",pagina:"/check-seller",imagen:"assets/img/miCertificado.png"}
 		];
    }
 

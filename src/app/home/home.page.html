@@ -15,46 +15,9 @@
   <p>Bievenido a la aplicacion de vendedores informales más libre del pais los siguientes modulos estan disponibles para tí</p>
 
   <ion-card *ngFor="let modules of modulos" [routerLink]="modules.pagina" animated="true">
-    <img src="assets/img/miPuesto.png"/>
-     <ion-card-title>
-        {{modules.name}}
-
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> 
-  <ion-card>
-    <!--<a target="_blank" rel="noopener" href="login">-->
-    <button ion-item  (click)="seleccion(0)">
-    <img src="assets/img/miPuesto.png"  height="200px" />
+    <img src="{{modules.imagen}}" height="200px"/>
      <ion-card-title align="center">
-        Mi Puesto
+        {{modules.name}}
      </ion-card-title>
-   </button>
-   <!--</a>-->
-  </ion-card>
-  
-  <ion-card>
-    <button ion-item  (click)="seleccion(1)">
-    <img src="assets/img/certificado.jpg" height="200px"  />
-    <ion-card-title align="center">
-        Mi Certificado
-     </ion-card-title>
-   </button>
-  </ion-card>
-
-   <ion-card>
-    <button ion-item  (click)="seleccion(2)">
-    <img src="assets/img/pqr.jpg" height="200px"  />
-    <ion-card-title align="center">
-        PQRs
-     </ion-card-title>
-   </button>
-  </ion-card>
-  
-   <ion-card>
-    <button ion-item  (click)="seleccion(3)">
-    <img src="assets/img/capacitacion.jpg" height="200px"  />
-    <ion-card-title align="center">
-        Capacitacion
-     </ion-card-title>
-   </button>
   </ion-card>
 </ion-content>

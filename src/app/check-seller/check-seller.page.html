@@ -6,25 +6,14 @@
 
 <ion-content padding>
 <p>Acerque el escaner al codigo QR del puesto generado por el comerciante para comprobar la utenticidad del mismo.</p>
-<ion-item>
-  <ion-input type="text" placeholder="My QR data" [{ngModel}]="qrData"></ion-input>
-</ion-item> 
-<button ion-button incon-left (click)="createCode()">
-  <ion-icon name="barcode"></ion-icon>Create Code
-</button>
-<button ion-button incon-left (click)="scanCode()">
-  <ion-icon name="qr-scanner"></ion-icon>Scan Code
-</button>
-<ion-card *ngIf="createdCode" >
-  <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
-  <ion-card-content>
+<ion-card [routerLink]="['\auditory-stand-info']">
+  <ion-title>
+    espacion para el escaner por qr
+  </ion-title>
+  <ion-content>
     <p>
-      value: {{createdCode}}
+      en este espacion para a estar el esaner por QR
     </p>
-</ion-card>
-<ion-card *ngIf="sannedCode">
-  <ion-card-content>
-    Result from scan: {{sannedCode}}
-  </ion-card-content>
+  </ion-content>
 </ion-card>
 </ion-content>

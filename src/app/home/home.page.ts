@@ -9,34 +9,23 @@ import { Router } from '@angular/router';
 export class HomePage {
 
 
-	modulos:Array<{name:string,pagina:string}>;
+	modulos:Array<{
+		name:string,
+		pagina:string,
+		imagen:string
+	}>;
 
 	constructor(private router:Router){
 		this.modulos=[
-		{name:"mi puesto",pagina:"/home"},
-		{name:"Cetificado",pagina:"/home"},
-		{name:"pqr",pagina:"/home"},
-		{name:"capacitacion",pagina:"/home"},
-		{name:"auditorias",pagina:"/auditory"}
+		{name:"Mi puesto",pagina:"/stand",imagen:"assets/img/miPuesto.png"},
+		{name:"Cetificado",pagina:"/home",imagen:"assets/img/certificado.jpg"},
+		{name:"PQRs",pagina:"/home",imagen:"assets/img/pqr.jpg"},
+		{name:"Capacitación",pagina:"/home",imagen:"assets/img/capacitacion.jpg"},
+		{name:"Auditoria",pagina:"/auditory",imagen:"assets/img/miPuesto.png"}
 		];
 	}
 
-	seleccion(characterNum: int) {
-   	
-   	 console.log(characterNum);
-   	if(characterNum== "0"){
-   		this.router.navigate(['/stand']);
-   	}if(characterNum==1){
-   		this.router.navigate(['/home']);
-   	}if(characterNum==2){
-   		this.router.navigate(['/home']);
-   	}if(characterNum==3){
-   		this.router.navigate(['/home']);
-   	}
-
-   // let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    //modal.present();
-  }
+  
 
 
 }
