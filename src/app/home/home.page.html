@@ -11,11 +11,15 @@
 </ion-header>
 
 <ion-content padding>
+  <h1> Vendedor IN </h1>
+  <p>Bievenido a la aplicacion de vendedores informales más libre del pais los siguientes modulos estan disponibles para tí</p>
+
+  <ion-card *ngFor="let modules of modulos" [routerLink]="modules.pagina" animated="true">
+    <img src="assets/img/miPuesto.png"/>
+     <ion-card-title>
+        {{modules.name}}
 
     <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> 
-
-
-
   <ion-card>
     <!--<a target="_blank" rel="noopener" href="login">-->
     <button ion-item  (click)="seleccion(0)">

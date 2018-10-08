@@ -8,7 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-	constructor(private router: Router) { }
+
+	modulos:Array<{name:string,pagina:string}>;
+
+	constructor(private router:Router){
+		this.modulos=[
+		{name:"mi puesto",pagina:"/home"},
+		{name:"Cetificado",pagina:"/home"},
+		{name:"pqr",pagina:"/home"},
+		{name:"capacitacion",pagina:"/home"},
+		{name:"auditorias",pagina:"/auditory"}
+		];
+	}
 
 	seleccion(characterNum: int) {
    	
