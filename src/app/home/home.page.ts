@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
+
 	modulos:Array<{name:string,pagina:string}>;
 
 	constructor(private router:Router){
@@ -19,6 +20,23 @@ export class HomePage {
 		{name:"auditorias",pagina:"/auditory"}
 		];
 	}
+
+	seleccion(characterNum: int) {
+   	
+   	 console.log(characterNum);
+   	if(characterNum== "0"){
+   		this.router.navigate(['/stand']);
+   	}if(characterNum==1){
+   		this.router.navigate(['/home']);
+   	}if(characterNum==2){
+   		this.router.navigate(['/home']);
+   	}if(characterNum==3){
+   		this.router.navigate(['/home']);
+   	}
+
+   // let modal = this.modalCtrl.create(ModalContentPage, characterNum);
+    //modal.present();
+  }
 
 
 }
