@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+        <ion-back-button ></ion-back-button>
+    </ion-buttons> 
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+      <ion-header>Buscar punto de venta</ion-header>
+      <ion-item>Localidad:
+        <ion-select placeholder="Selecciona localidad">
+          <ion-select-option *ngFor="let localidad of localidades" value="{{localidad.id}}">{{localidad.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>Barrio:
+          <ion-select placeholder="Selecciona Barrio">
+            <ion-select-option *ngFor="let barrio of barrios" value="{{barrio.id}}">{{barrio.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>Direccion:
+            <ion-select placeholder="Selecciona ubicacion">
+              <ion-select-option *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.id}}">{{ubicacion.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+    </ion-list>
+
+    <ion-button color="primary" expand="block" [routerLink]="['/novelty-detail']">Crear Novedad</ion-button>
+
+
+</ion-content>
