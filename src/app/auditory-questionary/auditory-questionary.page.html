@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot='start'>
+          <ion-back-button ></ion-back-button>
+      </ion-buttons>
+    <ion-title>Cuestionario Auditoria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-tabs tabbar-placement="top">
+    <ion-tab label='Basico' selectedTab="true">
+      <ion-list >
+      <ion-list-header>Preguntas Basicas del puesto</ion-list-header>
+        <ion-item *ngFor="let preguntas of preguntasBasico">
+          <ion-label>{{preguntas.pregunta}}</ion-label>
+          <ion-select placeholder="Seleccione una">
+            <ion-select-option *ngFor="let respuesta of preguntas.respuestas" value="{{respuesta}}">{{respuesta}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-tab>
+    <ion-tab label='Puesto'>
+      <ion-list >
+        <ion-list-header>Preguntas del puesto</ion-list-header>
+        <ion-item *ngFor="let preguntas of preguntasPuesto">
+          <ion-label>{{preguntas.pregunta}}</ion-label>
+          <ion-select placeholder="Seleccione una">
+            <ion-select-option *ngFor="let respuesta of preguntas.respuestas" value="{{respuesta}}">{{respuesta}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-tab>
+    <ion-tab label='Poducto'>
+      <ion-list >
+        <ion-list-header>Preguntas del Producto</ion-list-header>
+        <ion-item *ngFor="let preguntas of preguntasProducto">
+          <ion-label>{{preguntas.pregunta}}</ion-label>
+          <ion-select placeholder="Seleccione una">
+            <ion-select-option *ngFor="let respuesta of preguntas.respuestas" value="{{respuesta}}">{{respuesta}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-button color="primary" expand="full" (click)="presentAlert()">Finalizar</ion-button>
+    </ion-tab>
+  </ion-tabs>
+</ion-content>

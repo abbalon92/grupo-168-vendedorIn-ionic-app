@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-item  (click)="regresar()">
+	      <ion-icon name="arrow-back"></ion-icon>
+	</button>
+	Datos de Contacto
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+ 		<ion-icon name="md-person"></ion-icon>
+	</ion-item>
+	<ion-item>
+		<ion-label fixed>Murat Mutlu</ion-label>
+	</ion-item>
+	<ion-item>
+ 		<ion-label fixed>Comerciante</ion-label>
+	</ion-item>
+	<ion-item>
+		<ion-label floating>Dirección*</ion-label>
+    	<ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+		<ion-label floating>Localidad*</ion-label>
+			<ion-select [(ngModel)]="seleccione">
+				<!--<ion-option *ngFor="let item of lists" value="{{item.id_str}}">{{item.text}}</ion-option>-->
+			   <!--   <ion-option value="1">Teusaquillo</ion-option>
+			      <ion-option value="2">Chapinero</ion-option>
+			      <ion-option value="3">San Cristobal</ion-option>-->
+			     </ion-select>
+	</ion-item>
+	
+	<ion-item>
+		<ion-label floating>Barrio*</ion-label>
+    	<ion-input type="text"></ion-input>
+	</ion-item>
+ <ion-item>
+		<ion-label floating>Estrato*</ion-label>
+			<ion-select [(ngModel)]="seleccione">
+				<!--<ion-option *ngFor="let item of lists" value="{{item.id_str}}">{{item.text}}</ion-option>-->
+			      <!--<ion-option value="1">Estrato 1</ion-option>
+			      <ion-option value="2">Estrato 2</ion-option>
+			      <ion-option value="3">Estrato 3</ion-option>-->
+			     </ion-select>
+	</ion-item>
+
+
+	<ion-item>
+		<ion-label floating>Teléfono Fijo</ion-label>
+    	<ion-input type="text"></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label floating>Teléfono Movil*</ion-label>
+    	<ion-input type="text"></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label floating>Correo Electrónico*</ion-label>
+    	<ion-input type="text"></ion-input>
+	</ion-item>
+	
+	<ion-item>
+		<button ion-button (click)="guardar()">Guardar Cambios</button>
+	</ion-item>
+      </ion-list>
+
+</ion-content>
