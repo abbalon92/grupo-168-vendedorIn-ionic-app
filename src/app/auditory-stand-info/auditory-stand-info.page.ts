@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auditory-stand-info.page.scss'],
 })
 export class AuditoryStandInfoPage implements OnInit {
-
+  title:string="Informacion del puesto";
   constructor() { }
 
   ngOnInit() {

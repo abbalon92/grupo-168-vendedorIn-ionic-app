@@ -1,9 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>auditory-stand-info</ion-title>
+      <ion-buttons slot='start'>
+          <ion-back-button ></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-card-title>Informacion el puesto</ion-card-title>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Direccion</ion-label>
+          Calle 33 ba sur # 4 b - 74
+        </ion-item>
+        <ion-item>
+          <ion-label>Barrio</ion-label>
+          villa de los alpes
+        </ion-item>
+        <ion-item>
+        <ion-label>Localidad</ion-label>
+          San cristobal
+        </ion-item>
+        <ion-item>
+        <ion-label>Asociado</ion-label>
+          Sergio Hernandez
+        </ion-item>
+      </ion-list>
+    </ion-card-content>  
+  </ion-card>
+  <ion-button color="primary" expand="block" [routerLink]="['/auditory-questionary']">Realizar auditoria</ion-button>
+  <ion-button color="primary" expand="block">Generar novedad</ion-button>
 </ion-content>

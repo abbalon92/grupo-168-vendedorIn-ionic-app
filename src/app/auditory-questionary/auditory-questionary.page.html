@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot='start'>
+          <ion-back-button ></ion-back-button>
+      </ion-buttons>
     <ion-title>Cuestionario Auditoria</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-tabs>
-    <ion-tab label='Basico'>
+  <ion-tabs tabbar-placement="top">
+    <ion-tab label='Basico' selectedTab="true">
       <ion-list >
       <ion-list-header>Preguntas Basicas del puesto</ion-list-header>
         <ion-item *ngFor="let preguntas of preguntasBasico">
@@ -38,6 +41,7 @@
           </ion-select>
         </ion-item>
       </ion-list>
+      <ion-button color="primary" expand="full" (click)="presentAlert()">Finalizar</ion-button>
     </ion-tab>
   </ion-tabs>
 </ion-content>
