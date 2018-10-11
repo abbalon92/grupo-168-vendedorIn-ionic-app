@@ -1,7 +1,0 @@
-{
-  "name": "vendedorInMenu",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
