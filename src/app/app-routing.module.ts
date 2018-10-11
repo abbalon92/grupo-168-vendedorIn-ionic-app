@@ -24,7 +24,14 @@ const routes: Routes = [
   { path: 'basicData', loadChildren: './basic-data/basic-data.module#BasicDataPageModule' },
   { path: 'contactInformation', loadChildren: './contact-information/contact-information.module#ContactInformationPageModule' },
   { path: 'vulnerabilityCondition', loadChildren: './vulnerability-condition/vulnerability-condition.module#VulnerabilityConditionPageModule' },
-  { path: 'stand', loadChildren: './stand/stand.module#StandPageModule' }
+  { path: 'stand', loadChildren: './stand/stand.module#StandPageModule' },
+  { path: 'training', loadChildren: './training/training.module#TrainingPageModule' },
+  { path: 'foodManagement', loadChildren: './food-management/food-management.module#FoodManagementPageModule' },
+  { path: 'itManagement', loadChildren: './it-management/it-management.module#ItManagementPageModule' },
+  { path: 'hygieneManagement', loadChildren: './hygiene-management/hygiene-management.module#HygieneManagementPageModule' },
+  { path: 'financeManagement', loadChildren: './finance-management/finance-management.module#FinanceManagementPageModule' },
+  { path: 'clothesManagement', loadChildren: './clothes-management/clothes-management.module#ClothesManagementPageModule' },
+  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' }
 ];
 
 @NgModule({
