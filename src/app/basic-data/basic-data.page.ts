@@ -9,6 +9,18 @@ import { Router } from '@angular/router';
 })
 export class BasicDataPage implements OnInit {
 
+  tipoIdentificacion = [
+    {id:"1", descripcion:"Cédula"},
+    {id:"2", descripcion:"Cédula de Extranjeria"},
+    {id:"3", descripcion:"Pasaporte"}
+  ];
+
+  generos= [
+    {id:"1", descripcion:"Femenino"},
+    {id:"2", descripcion:"Masculino"}
+  ];
+
+
     constructor(private router: Router) { }
 
   ngOnInit() {

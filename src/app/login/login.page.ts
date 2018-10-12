@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
 
   title:String="Iniciar Sesión";
+  forgotPass:String="Iniciar Sesión";
 
   constructor(private router: Router) { }
 
@@ -20,7 +21,7 @@ export class LoginPage implements OnInit {
   }
 
   olvideMiClave():void{
-  //this.navCtrl.push();
+  
   }
 
 }

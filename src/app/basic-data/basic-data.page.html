@@ -20,41 +20,38 @@
  		<ion-label fixed>Comerciante</ion-label>
 	</ion-item>
 	<ion-item>
-		<ion-label stacked>No. Identificación*</ion-label>
+		<ion-label position="floating">No. Identificación*</ion-label>
     	<ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-		<ion-label stacked>Tipo de Identificación*</ion-label>
-			<ion-select [(ngModel)]="seleccione">
-				
-			    <!--  <ion-option value="1">Cédula Ciudadania </ion-option>
-			      <ion-option value="2">Cédula de Extranjeria</ion-option>
-			      <ion-option value="3">Pasaporte</ion-option>-->
-			</ion-select>
+		<ion-label position="floating">Tipo de Identificación*</ion-label>
+		<ion-select placeholder="Seleccione" >
+			<ion-select-option *ngFor="let t of tipoIdentificacion" value="{{t.id}}">{{t.descripcion}}</ion-select-option>
+		  </ion-select>
+
+		
 	</ion-item>
 	<ion-item>
-		<ion-label stacked>Nombres*</ion-label>
+		<ion-label position="floating">Nombres*</ion-label>
     	<ion-input type="text"></ion-input>
 	</ion-item>
 	<ion-item>
-		<ion-label stacked>Apellidos*</ion-label>
+		<ion-label position="floating">Apellidos*</ion-label>
     	<ion-input type="text"></ion-input>
 	</ion-item>
 	<ion-item>
-		<ion-label stacked>Fecha Nacimiento*</ion-label>
-    	<ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" ></ion-datetime>
+		<ion-label position="floating">Fecha Nacimiento*</ion-label>
+  		<ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" value="2002-09-23T15:03:46.789"></ion-datetime>
 	</ion-item>
 	<ion-item>
-		<ion-label stacked>Género*</ion-label>
-    	<ion-select [(ngModel)]="seleccione">
-				
-			<!--      <ion-option value="1">Femenino</ion-option>
-			      <ion-option value="2">Masculino</ion-option>-->
-		</ion-select>
-	</ion-item>
+		<ion-label position="floating">Género*</ion-label>
+		<ion-select placeholder="Seleccione" >
+			<ion-select-option *ngFor="let g of generos" value="{{g.id}}">{{g.descripcion}}</ion-select-option>
+		 </ion-select>
+    </ion-item>
 	
 	<ion-item>
-		<button ion-button (click)="guardar()">Guardar Cambios</button>
+		<ion-button expand="block" color="primary" (click)="guardar()">Guardar</ion-button>
 	</ion-item>
 	</ion-list>
 </ion-content>
