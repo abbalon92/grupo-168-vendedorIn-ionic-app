@@ -8,22 +8,34 @@ import { Router } from '@angular/router';
 })
 export class HomeProfilePage implements OnInit {
 
+  title:String="Mi Perfil";
+  vendedor:object={
+    nombre:"Murat Mutlu",
+    rol: "Comerciante"
+  }
+
+
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
 
- public appPages = [
+ public menuProfile = [
     
      {
-      title: 'Mi Perfil',
-      url: '/homeProfile'
+      title: 'Datos Básicos',
+      url: '/basicData'
       //icon: 'pr¿'
     },
     {
-      title: 'Salir',
-      url: '/login',
+      title: 'Datos de Contacto',
+      url: '/contactInformation',
+      //icon: 'list'
+    },
+    {
+      title: 'Condición de Contacto',
+      url: '/vulnerabilityCondition',
       //icon: 'list'
     }
   ];
