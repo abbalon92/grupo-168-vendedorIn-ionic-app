@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finance-management.page.scss'],
 })
 export class FinanceManagementPage implements OnInit {
-
+	
+	titlePage:string = "Gestión de Finanzas";
   constructor() { }
 
   ngOnInit() {

@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./digital-market.page.scss'],
 })
 export class DigitalMarketPage implements OnInit {
-
+	
+	titlePage:string = "Marketing";
   constructor() { }
 
   ngOnInit() {

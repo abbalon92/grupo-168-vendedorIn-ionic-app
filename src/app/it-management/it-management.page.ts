@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./it-management.page.scss'],
 })
 export class ItManagementPage implements OnInit {
-
+	
+	titlePage:string = "Gestión de Tecnología";
   constructor() { }
 
   ngOnInit() {

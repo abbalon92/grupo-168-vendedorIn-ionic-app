@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClothesManagementPage implements OnInit {
 
-  constructor() { }
+	titlePage:string = "Gestión de textiles o ropa";
+
+	
+
+  constructor() { 
+	
+
+  }
 
   ngOnInit() {
+  
   }
 
 }
