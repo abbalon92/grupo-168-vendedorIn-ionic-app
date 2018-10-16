@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 //imports de prueba
 import { LoadingController } from '@ionic/angular';
-import { UsersService } from '../service/users.service';
 import { DocumentTypeService } from '../service/document-type.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class AuditoryPage implements OnInit {
   documents:any[]=[];
 
   constructor( 
-     public api: UsersService,
      public loadingController: LoadingController,
      public documentService:DocumentTypeService) {
   	this.modulos=[
@@ -32,23 +30,7 @@ export class AuditoryPage implements OnInit {
    }
 
   ngOnInit() {
-    this.getData();
     this.getDocuments();
-  }
-
-  public async getData() {
-    const loading = await this.loadingController.create({
-      message: 'Loading'
-    });
-    await loading.present();
-    this.api.getData()
-      .subscribe(res => {
-        this.users=res;
-        loading.dismiss();
-      }, err => {
-        console.log(err);
-        loading.dismiss();
-      });
   }
 
   public async getDocuments() {
