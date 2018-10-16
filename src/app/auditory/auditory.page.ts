@@ -31,7 +31,7 @@ export class AuditoryPage implements OnInit {
    }
 
   ngOnInit() {
-    this.getData;
+    this.getData();
   }
 
   public async getData() {
@@ -41,14 +41,12 @@ export class AuditoryPage implements OnInit {
     await loading.present();
     this.api.getData()
       .subscribe(res => {
-        console.log('Consumiendo servicio');
         this.data1 = res[0];
         this.data2 = res[1];
         this.data3 = res[2];
         this.data4 = res[3];
         loading.dismiss();
       }, err => {
-        console.log('error consimiendo servicio');
         console.log(err);
         loading.dismiss();
       });
