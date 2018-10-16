@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home-profile',
@@ -13,11 +14,17 @@ export class HomeProfilePage implements OnInit {
     nombre:"Murat Mutlu",
     rol: "Comerciante"
   }
+  idUser:any;
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private activateRoute: ActivatedRoute) {
+    
+  }
 
   ngOnInit() {
+    this.idUser=this.activateRoute.snapshot.paramMap.get('idUser');
+    console.log("ID USua")
+    console.log(this.idUser)
   }
 
 
@@ -25,38 +32,22 @@ export class HomeProfilePage implements OnInit {
     
      {
       title: 'Datos Básicos',
-      url: '/basicData'
+      url: `/basicData/${this.idUser}`,	
       //icon: 'pr¿'
     },
     {
       title: 'Datos de Contacto',
-      url: '/contactInformation',
+      url: `/contactInformation/${this.idUser}`,
       //icon: 'list'
     },
     {
-      title: 'Condición de Contacto',
-      url: '/vulnerabilityCondition',
+      title: 'Condición de vulnerabilidad',
+      url: `/vulnerabilityCondition/${this.idUser}`,
       //icon: 'list'
     }
   ];
 
-   openModal(characterNum: number) {
-   	
-   	 console.log(characterNum);
-   	if(characterNum== 0){
-   		this.router.navigate(['/basicData']);
-   	}if(characterNum==1){
-   		this.router.navigate(['/contactInformation']);
-   	}if(characterNum==2){
-   		this.router.navigate(['/vulnerabilityCondition']);
-   	}
-   // let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    //modal.present();
-  }
-
-   regresar():void{
-	 this.router.navigate(['/home']);
-  }
-
+  
+  
 
 }

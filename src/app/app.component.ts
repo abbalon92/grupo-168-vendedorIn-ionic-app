@@ -13,14 +13,14 @@ export class AppComponent {
   public appPages = [
     
      {
-      title: 'Mi Perfil0',
-      url: '/homeProfile'
-      //icon: 'pr¿'
+      title: 'Mi Perfil',
+      url: '/homeProfile/1',
+      icon: 'person'
     },
     {
       title: 'Salir',
       url: '/login',
-      //icon: 'list'
+      icon: 'log-out'
     }
   ];
 

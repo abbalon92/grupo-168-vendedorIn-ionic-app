@@ -10,10 +10,10 @@
 <ion-content padding>
 	<ion-list>
 	<ion-item>
-		<ion-input placeholder="Usuario"></ion-input>
+		<ion-input placeholder="Usuario" [(ngModel)]="loginOb.usuario"></ion-input>
 	</ion-item>
   	<ion-item>
-  		<ion-input value="" type="password" placeholder="Contraseña"> </ion-input>
+  		<ion-input value="" type="password" placeholder="Contraseña"  [(ngModel)]="loginOb.clave" > </ion-input>
   	</ion-item>
 	
 </ion-list>

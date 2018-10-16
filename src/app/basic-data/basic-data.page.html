@@ -1,57 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-  	<button ion-item  (click)="regresar()">
-	      <ion-icon name="arrow-back"></ion-icon>
-	</button>
-
-    Datos Básicos
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot='start'>
+			 <ion-back-button></ion-back-button>
+		 </ion-buttons>
+	   <ion-title>{{title}}</ion-title>
+	 </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 	<ion-list>
 		<ion-item>
- 		<ion-icon name="md-person"></ion-icon>
-	</ion-item>
-	<ion-item>
-		<ion-label fixed>Murat Mutlu</ion-label>
-	</ion-item>
-	<ion-item>
- 		<ion-label fixed>Comerciante</ion-label>
-	</ion-item>
-	<ion-item>
-		<ion-label position="floating">No. Identificación*</ion-label>
-    	<ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-		<ion-label position="floating">Tipo de Identificación*</ion-label>
-		<ion-select placeholder="Seleccione" >
-			<ion-select-option *ngFor="let t of tipoIdentificacion" value="{{t.id}}">{{t.descripcion}}</ion-select-option>
-		  </ion-select>
-
-		
-	</ion-item>
-	<ion-item>
-		<ion-label position="floating">Nombres*</ion-label>
-    	<ion-input type="text"></ion-input>
-	</ion-item>
-	<ion-item>
-		<ion-label position="floating">Apellidos*</ion-label>
-    	<ion-input type="text"></ion-input>
-	</ion-item>
-	<ion-item>
-		<ion-label position="floating">Fecha Nacimiento*</ion-label>
-  		<ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" value="2002-09-23T15:03:46.789"></ion-datetime>
-	</ion-item>
-	<ion-item>
-		<ion-label position="floating">Género*</ion-label>
-		<ion-select placeholder="Seleccione" >
-			<ion-select-option *ngFor="let g of generos" value="{{g.id}}">{{g.descripcion}}</ion-select-option>
-		 </ion-select>
-    </ion-item>
-	
-	<ion-item>
-		<ion-button expand="block" color="primary" (click)="guardar()">Guardar</ion-button>
-	</ion-item>
+			<ion-label position="floating">No. Identificación*</ion-label>
+			<ion-input [(ngModel)]="user.userId"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Tipo de Identificación*</ion-label>
+			<ion-select [(ngModel)]="user.documentTypeId">
+				<ion-select-option *ngFor="let t of tipoIdentificacion" value="{{t.id}}">{{t.descripcion}}</ion-select-option>
+			</ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Nombres*</ion-label>
+			<ion-input [(ngModel)]="user.fullName"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Apellidos*</ion-label>
+			<ion-input [(ngModel)]="user.lastNames"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Fecha Nacimiento*</ion-label>
+			<ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" [(ngModel)]="user.birthdate"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Género*</ion-label>
+			<ion-select [(ngModel)]="user.genderId">
+				<ion-select-option *ngFor="let g of generos" value="{{g.id}}">{{g.descripcion}}</ion-select-option>
+			</ion-select>
+		</ion-item>
 	</ion-list>
+	<ion-button expand="block" color="primary" (click)="guardar()">Guardar</ion-button>
 </ion-content>
