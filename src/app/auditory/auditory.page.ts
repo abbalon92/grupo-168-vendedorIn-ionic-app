@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 //imports de prueba
 import { LoadingController } from '@ionic/angular';
-import { UsersService } from '../users.service';
+import { UsersService } from '../service/users.service';
+import { DocumentTypeService } from '../service/document-type.service';
 
 @Component({
   selector: 'app-auditory',
@@ -18,13 +19,13 @@ export class AuditoryPage implements OnInit {
 	}>;
   title:string = "Auditorias";
    
-  data1: any;
-  data2: any;
-  data3: any;
-  data4: any;
+  users:any[]=[];
+  documents:any[]=[];
 
-
-  constructor( public api: UsersService, public loadingController: LoadingController) {
+  constructor( 
+     public api: UsersService,
+     public loadingController: LoadingController,
+     public documentService:DocumentTypeService) {
   	this.modulos=[
 		{name:"Comprobar certificado",pagina:"/check-seller",imagen:"assets/img/miCertificado.png"}
 		];
@@ -32,6 +33,7 @@ export class AuditoryPage implements OnInit {
 
   ngOnInit() {
     this.getData();
+    this.getDocuments();
   }
 
   public async getData() {
@@ -41,10 +43,22 @@ export class AuditoryPage implements OnInit {
     await loading.present();
     this.api.getData()
       .subscribe(res => {
-        this.data1 = res[0];
-        this.data2 = res[1];
-        this.data3 = res[2];
-        this.data4 = res[3];
+        this.users=res;
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+  }
+
+  public async getDocuments() {
+    const loading = await this.loadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+    this.documentService.getData()
+      .subscribe(res => {
+        this.documents=res;
         loading.dismiss();
       }, err => {
         console.log(err);
