@@ -14,13 +14,13 @@ export class AppComponent {
     
      {
       title: 'Mi Perfil',
-      url: '/homeProfile'
-      //icon: 'pr¿'
+      url: '/homeProfile/1',
+      icon: 'person'
     },
     {
       title: 'Salir',
       url: '/login',
-      //icon: 'list'
+      icon: 'log-out'
     }
   ];
 

@@ -1,67 +1,38 @@
 <ion-header>
   <ion-toolbar>
-  	<button ion-item  (click)="regresar()">
-	      <ion-icon name="arrow-back"></ion-icon>
-	</button>
-	Mi Perfil
-    <!--<ion-title>Mi Perfil</ion-title>-->
+ 	<ion-buttons slot='start'>
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-<ion-list>
-	<ion-item>
- 		<ion-icon name="md-person"></ion-icon>
-	</ion-item>
-	<ion-item>
-		<ion-label fixed>Murat Mutlu</ion-label>
-	</ion-item>
-	<ion-item>
- 		<ion-label fixed>Comerciante</ion-label>
-	</ion-item>
-	<ion-item>
+	<ion-card>
+		 <ion-card-content >
+		 	<ion-img src="/assets/img/myUser.png" ></ion-img>
+			<ion-input type="text" [(ngModel)]="vendedor.nombre" name="nombre" disabled></ion-input>
+		 	<ion-input type="text" [(ngModel)]="vendedor.rol" name="rol" disabled></ion-input>
+		 
+		 </ion-card-content>
+	</ion-card>
 
- <ion-list no-lines>
- 	<ion-item>
-	    <button ion-item  (click)="openModal(0)">
-	      Datos Básicos
-	    </button>
-    </ion-item>
-    <ion-item>
-	    <button ion-item  (click)="openModal(1)">
-	      Datos de Contacto
-	    </button>
-    </ion-item>
-    <ion-item>
-	    <button ion-item  (click)="openModal(2)">
-	      Condición de Contacto
-	    </button>
-    </ion-item>
+
+<ion-menu-toggle auto-hide="false" *ngFor="let p of menuProfile">
+	<ion-list no-lines>
+ 	<ion-item [routerLink]="[p.url]"> 
+ 			 {{p.title}}
+</ion-item>
+    
   </ion-list>
 
 
-<!--
-		 <ion-list>
-		 	<ion-item>
-		    <a ion-item (click)="openModal({0})">
-		      Datos Básicos
-		    </a>
-		    </ion-item>
-		    <ion-item>
-		    <a ion-item (click)="openModal({charNum: 1})">
-		      Datos de Contacto
-		    </a>
-		    </ion-item>
-		    <ion-item>
-		    <a ion-item (click)="openModal({charNum: 2})">
-		      Condición de Vulnerabilidad
-		    </a>
-		    </ion-item>
-		  </ion-list>
-		-->
-	</ion-item>
+ 
+</ion-menu-toggle>
+ 
 
 
-</ion-list>
+
+
 </ion-content>
