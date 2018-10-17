@@ -14,7 +14,7 @@ export class MenuPage implements OnInit {
 
 public appPages = [
     {
-      title: 'Mi Perfil',
+      title: 'Mi Perfil1',
       url: '/profile'
       //icon: 'pr¿'
     },
