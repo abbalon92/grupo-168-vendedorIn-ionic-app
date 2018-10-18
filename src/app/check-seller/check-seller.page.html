@@ -10,13 +10,14 @@
 <ion-content padding>
 <p>Acerque el escaner al codigo QR del puesto generado por el comerciante para comprobar la utenticidad del mismo.</p>
 <ion-card [routerLink]="['/auditory-stand-info']">
-  <ion-title>
+  <ion-card-header>
     espacion para el escaner por qr
-  </ion-title>
-  <ion-content>
+  </ion-card-header>
+  <ion-card-content>
     <p>
       en este espacion para a estar el esaner por QR
     </p>
-  </ion-content>
+  </ion-card-content>
 </ion-card>
+<ion-button color="primary" expand="block" (click)="getPhoto()">tomar foto</ion-button>
 </ion-content>

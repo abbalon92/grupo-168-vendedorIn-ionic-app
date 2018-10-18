@@ -9,6 +9,14 @@
 
 <ion-content padding>
   <p>Bienvenido al modulo de audtoria</p>
+
+  <ion-list>
+    <ion-item *ngFor="let document of documents">
+      <p>{{document.abbreviation}}</p>
+      <p>{{document.description}}</p>
+      <p>{{document.documentTypeId}}</p>
+    </ion-item>
+  </ion-list>
   <ion-card *ngFor="let modules of modulos" [routerLink]="modules.pagina">
    	<img src="{{modules.imagen}}"/>
    	<ion-card-title align="center">
