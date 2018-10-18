@@ -33,8 +33,6 @@ const routes: Routes = [
   { path: 'financeManagement', loadChildren: './finance-management/finance-management.module#FinanceManagementPageModule' },
   { path: 'clothesManagement', loadChildren: './clothes-management/clothes-management.module#ClothesManagementPageModule' },
   { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' }
-
-
 ];
 
 @NgModule({
