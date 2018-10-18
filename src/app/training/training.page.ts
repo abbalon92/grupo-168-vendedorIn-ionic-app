@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./training.page.scss'],
 })
 export class TrainingPage implements OnInit {
-
+	
+	titlePage:string = "Capacitación";
   constructor() { }
 
   ngOnInit() {
