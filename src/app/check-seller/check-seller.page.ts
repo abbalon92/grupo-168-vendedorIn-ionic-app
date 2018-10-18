@@ -13,7 +13,7 @@ import { error } from 'util';
 export class CheckSellerPage implements OnInit {
 
   title:string="Comprobar certificado";
-  CapturedImageURL:any;
+  CapturedImageURL:string="";
   constructor(private camera:Camera,
     public storage:NativeStorage ) { }
 
@@ -23,22 +23,19 @@ export class CheckSellerPage implements OnInit {
   }
 
   getPhoto(){
-    const CamOptions: CameraOptions = {
+    const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      targetWidth:1024,
-      targetHeight:720
+      mediaType: this.camera.MediaType.PICTURE
     }
-
-    this.camera.getPicture(CamOptions).then((imageData) => {
-      console.log(imageData);
-      this.CapturedImageURL = imageData;         
-    },error=>{
-      console.log('error en tomar la foto');
-      console.log(error);
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     this.CapturedImageURL = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+     // Handle error
     });
   }
 

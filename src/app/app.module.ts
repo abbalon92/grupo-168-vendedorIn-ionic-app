@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { Camera } from "@ionic-native/camera/ngx";
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @NgModule({
