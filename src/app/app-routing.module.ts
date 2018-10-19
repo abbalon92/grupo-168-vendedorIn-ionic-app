@@ -7,7 +7,7 @@ const routes: Routes = [
     redirectTo: 'intro',
     pathMatch: 'full'
   },
-  { path: 'home/:idUser',loadChildren: './home/home.module#HomePageModule'},
+  { path: 'home',loadChildren: './home/home.module#HomePageModule'},
   { path: 'list', loadChildren: './list/list.module#ListPageModule'},
   { path: 'auditory', loadChildren: './auditory/auditory.module#AuditoryPageModule' },
   { path: 'check-seller', loadChildren: './check-seller/check-seller.module#CheckSellerPageModule' },
