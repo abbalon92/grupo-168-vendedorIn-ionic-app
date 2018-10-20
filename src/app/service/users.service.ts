@@ -18,6 +18,8 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsuarioLogin(id:any,clave:String): Observable<any> {
+//    $http.post(api_url+'post/user/login?username='+data.username+'&password='+data.password).then(function(resp){
+
     const url = `${apiUrl}/${id}`;
     console.log("URLL" +url);
     return this.http.get(url, httpOptions);

@@ -7,7 +7,7 @@ const routes: Routes = [
     redirectTo: 'intro',
     pathMatch: 'full'
   },
-  { path: 'home/:idUser',loadChildren: './home/home.module#HomePageModule'},
+  { path: 'home',loadChildren: './home/home.module#HomePageModule'},
   { path: 'list', loadChildren: './list/list.module#ListPageModule'},
   { path: 'auditory', loadChildren: './auditory/auditory.module#AuditoryPageModule' },
   { path: 'check-seller', loadChildren: './check-seller/check-seller.module#CheckSellerPageModule' },
@@ -25,7 +25,15 @@ const routes: Routes = [
   { path: 'contactInformation/:idUser', loadChildren: './contact-information/contact-information.module#ContactInformationPageModule' },
   { path: 'vulnerabilityCondition/:idUser', loadChildren: './vulnerability-condition/vulnerability-condition.module#VulnerabilityConditionPageModule' },
   { path: 'stand/:idUser', loadChildren: './stand/stand.module#StandPageModule' },
-  { path: 'myAudit/:idPuesto', loadChildren: './my-audit/my-audit.module#MyAuditPageModule' }
+  { path: 'myAudit/:idPuesto', loadChildren: './my-audit/my-audit.module#MyAuditPageModule' },
+  { path: 'training', loadChildren: './training/training.module#TrainingPageModule' },
+  { path: 'foodManagement', loadChildren: './food-management/food-management.module#FoodManagementPageModule' },
+  { path: 'itManagement', loadChildren: './it-management/it-management.module#ItManagementPageModule' },
+  { path: 'hygieneManagement', loadChildren: './hygiene-management/hygiene-management.module#HygieneManagementPageModule' },
+  { path: 'financeManagement', loadChildren: './finance-management/finance-management.module#FinanceManagementPageModule' },
+  { path: 'clothesManagement', loadChildren: './clothes-management/clothes-management.module#ClothesManagementPageModule' },
+  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' }
+
 
 ];
 

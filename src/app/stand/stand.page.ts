@@ -8,7 +8,7 @@ import { SellerService} from '../service/seller.service';
 import { StandSellerService} from '../service/stand-seller.service';
 import { StandService} from '../service/stand.service';
 
-import { Chart } from 'chart.js';
+//import { Chart } from 'chart.js';
 
 
 @Component({
@@ -69,7 +69,7 @@ export class StandPage implements OnInit {
   }
 
 cargarProgreso(){
-  this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+ /* this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
  
     type: 'doughnut',
     data: {
@@ -96,7 +96,7 @@ cargarProgreso(){
         }]
     }
 
-});
+});*/
 }
   
 verAuditorias(){
