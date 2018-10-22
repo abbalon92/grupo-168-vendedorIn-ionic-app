@@ -32,7 +32,8 @@ const routes: Routes = [
   { path: 'hygieneManagement', loadChildren: './hygiene-management/hygiene-management.module#HygieneManagementPageModule' },
   { path: 'financeManagement', loadChildren: './finance-management/finance-management.module#FinanceManagementPageModule' },
   { path: 'clothesManagement', loadChildren: './clothes-management/clothes-management.module#ClothesManagementPageModule' },
-  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' }
+  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' },  { path: 'qrgenerator', loadChildren: './qrgenerator/qrgenerator.module#QrgeneratorPageModule' }
+
 ];
 
 @NgModule({
