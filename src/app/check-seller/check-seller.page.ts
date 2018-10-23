@@ -4,8 +4,6 @@ import { AlertsClass } from "../alerts";
 import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
-
-
 @Component({
   selector: 'app-check-seller',
   templateUrl: './check-seller.page.html',
