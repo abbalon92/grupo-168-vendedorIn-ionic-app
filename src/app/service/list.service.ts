@@ -27,8 +27,6 @@ export class ListService {
     this.documentTypeService.getData()
       .subscribe(res => {
         this.listaTipoIdentifica = res;
-        console.log("Tipo Identif");
-        console.log(this.listaTipoIdentifica);
       }, err => {
 
       });
@@ -38,8 +36,6 @@ export class ListService {
     this.genderService.getData()
       .subscribe(res => {
         this.listaGeneros = res;
-        console.log("Genero");
-        console.log(this.listaGeneros);
       }, err => {
 
       });

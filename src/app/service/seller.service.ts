@@ -28,16 +28,12 @@ export class SellerService {
 
   actualizaVendedor(vendedor:any){
     const url = `${apiUrl}/${vendedor.sellerId}`;
-    console.log ("URL");
-    console.log (vendedor);
-   return this.http.put(url, vendedor, httpOptions) .pipe(
+    return this.http.put(url, vendedor, httpOptions) .pipe(
      catchError(this.handleError)
     );
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.log("ERROR");
-    console.log(error);
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);

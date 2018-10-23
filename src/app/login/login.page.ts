@@ -32,12 +32,9 @@ export class LoginPage implements OnInit {
       message: 'Loading'
     });
     await loading.present();
-    console.log(this.usuario);
-     await this.usersService.getUsuarioLogin(this.usuario,this.clave)
+      await this.usersService.getUsuarioLogin(this.usuario,this.clave)
       .subscribe(res => {
         this.user = res;
-        console.log("Login");
-        console.log(this.user);
         this.authenticationService.cargar(this.usuario);
         this.router.navigate(['/home']);
         loading.dismiss();

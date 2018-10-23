@@ -36,12 +36,9 @@ export class NewUserPage implements OnInit {
               private listService:ListService) { }
 
   ngOnInit() {
-    console.log("NEw");
     this.listaTipoIdentifica=this.listService.listaTipoIdentifica
-    console.log(this.listaTipoIdentifica);
     this.listaGenero=this.listService.listaGeneros;
-    console.log(this.listaGenero);
-  }
+    }
 
   
   async crearCuenta(){
@@ -49,8 +46,7 @@ export class NewUserPage implements OnInit {
       message: 'Loading'
     });
     await loading.present();
-    console.log(this.user);
-     await this.usersService.crearUsuario(this.user)
+    await this.usersService.crearUsuario(this.user)
       .subscribe(res => {
         this.router.navigate(['/home']);
         loading.dismiss();

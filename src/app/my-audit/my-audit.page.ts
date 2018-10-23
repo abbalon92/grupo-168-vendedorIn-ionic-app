@@ -31,7 +31,6 @@ export class MyAuditPage implements OnInit {
     .subscribe(res => {
       this.auditorias=res;
     }, err => {
-      console.log("No Consulto")
       console.log(err);
     });
   }

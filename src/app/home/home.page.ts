@@ -22,7 +22,6 @@ export class HomePage {
 	constructor(private router:Router,private activateRoute: ActivatedRoute){
 		this.modulos=[
 		{name:"Mi puesto",pagina:"/stand",imagen:"assets/img/miPuesto.png"},
-		{name:"Cetificado",pagina:"/home",imagen:"assets/img/certificado.jpg"},
 		{name:"Novedades",pagina:"/novelty-create",imagen:"assets/img/pqr.jpg"},
 		{name:"Capacitación",pagina:"/training",imagen:"assets/img/capacitacion.jpg"},
 		{name:"Auditoria",pagina:"/auditory",imagen:"assets/img/miPuesto.png"}

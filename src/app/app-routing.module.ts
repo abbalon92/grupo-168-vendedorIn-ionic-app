@@ -32,8 +32,10 @@ const routes: Routes = [
   { path: 'hygieneManagement', loadChildren: './hygiene-management/hygiene-management.module#HygieneManagementPageModule' },
   { path: 'financeManagement', loadChildren: './finance-management/finance-management.module#FinanceManagementPageModule' },
   { path: 'clothesManagement', loadChildren: './clothes-management/clothes-management.module#ClothesManagementPageModule' },
-  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' },  { path: 'newUser', loadChildren: './new-user/new-user.module#NewUserPageModule' },
-  { path: 'introDeta', loadChildren: './intro-deta/intro-deta.module#IntroDetaPageModule' }
+  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' },
+  { path: 'newUser', loadChildren: './new-user/new-user.module#NewUserPageModule' },
+  { path: 'introDeta', loadChildren: './intro-deta/intro-deta.module#IntroDetaPageModule' },
+  { path: 'qrgenerator', loadChildren: './qrgenerator/qrgenerator.module#QrgeneratorPageModule' }
 
 
 

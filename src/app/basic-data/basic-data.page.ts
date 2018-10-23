@@ -62,9 +62,8 @@ export class BasicDataPage implements OnInit {
     });
 
 
-console.log("Ini If");
     if(this.actualiza){
-      console.log("Actuali Tru");
+     
       const alert = await this.alertCtrl.create({
         message: 'Se ha actualizando correctante.',
         buttons: ['OK']
@@ -73,7 +72,7 @@ console.log("Ini If");
       this.authenticationService.cargarUsuario();
       this.router.navigate(['/homeProfile']);
     }else{
-      console.log("Actuali False");
+      
       const alert = await this.alertCtrl.create({
         message: 'Se ha presentado un error. Comuniquese con el administrador.',
         buttons: ['OK']

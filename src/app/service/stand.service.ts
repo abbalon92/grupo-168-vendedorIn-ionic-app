@@ -18,7 +18,6 @@ export class StandService {
 
   getPuesto(idPuesto:any): Observable<any> {
     const url =`${apiUrl}/${idPuesto}`;
-    console.log("URLL" +url);
     return this.http.get(url, httpOptions);
   }
 }

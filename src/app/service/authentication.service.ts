@@ -33,9 +33,7 @@ export class AuthenticationService {
     this.usersService.getUsuario(this.idUsuario)
       .subscribe(res => {
         this.usuario = res;
-        console.log("Ser Usu");
-        console.log(this.usuario);
-      }, err => {
+     }, err => {
 
       });
   }
@@ -43,8 +41,8 @@ export class AuthenticationService {
   cargarVendedor() {
     this.sellerService.getVendedor(this.idUsuario)
       .subscribe(res => {
-        this.vendedor = res;
-        this.idVendedor = this.vendedor[0].sellerId;
+        this.vendedor = res[0];
+        this.idVendedor = this.vendedor.sellerId;
         console.log("Vende Servicio");
         console.log(this.vendedor);
       }, err => {
@@ -56,8 +54,10 @@ export class AuthenticationService {
   cargarPuesto() {
     this.vStandService.getStandUser(this.idUsuario)
       .subscribe(res => {
-        this.puesto = res;
-        this.idPuesto = this.puesto[0].standId;
+        this.puesto = res[0];
+        this.idPuesto = this.puesto.standId;
+        console.log("Puesto");
+        console.log(this.puesto);
       }, err => {
 
       });

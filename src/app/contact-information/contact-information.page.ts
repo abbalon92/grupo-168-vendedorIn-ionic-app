@@ -44,8 +44,6 @@ export class ContactInformationPage implements OnInit {
 
   ngOnInit() {
     this.usuario=this.authenticationService.usuario;
-    console.log("Usuario info");
-    console.log(this.usuario);
   }
 
 
