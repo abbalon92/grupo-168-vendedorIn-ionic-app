@@ -3,10 +3,16 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import {ActivatedRoute} from '@angular/router';
+//import QR
+import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { NgxQRCodeModule } from "ngx-qrcode2";
 
+//Service
 import { SellerService} from '../service/seller.service';
 import { StandSellerService} from '../service/stand-seller.service';
 import { StandService} from '../service/stand.service';
+import { AuthenticationService } from '../service/authentication.service';
 
 //import { Chart } from 'chart.js';
 
@@ -24,48 +30,15 @@ export class StandPage implements OnInit {
   seller:any;
   stand:any;
   stand_seller:any;
-
-  idUser:any;
-  
-
+  codigoPuesto:string;
   constructor(private router: Router, public sellerService: SellerService, private activateRoute: ActivatedRoute ,
-     private standSellerService:StandSellerService,private standService:StandService) { }
+     private standSellerService:StandSellerService,private standService:StandService,public authenticationService:AuthenticationService,
+     private barcodeScanner:BarcodeScanner,
+     public qrgeneratorPage:QrgeneratorPage) { }
 
   ngOnInit() {
-    this.idUser=this.activateRoute.snapshot.paramMap.get('idUser');
-    this.cargarPuesto();
-    this.cargarProgreso();
-  }
-
-  cargarPuesto(){
-    console.log("Cargar Pu"+this.idUser);
-    this.sellerService.getVendedor(this.idUser)
-    .subscribe(res => {
-      this.seller=res;
-      console.log(this.seller);
-      console.log("ID SEL"+this.seller.sellerId);
-//      this.standSellerService.getStandSeller(this.seller.sellerId)
-      this.standSellerService.getStandSeller(1)
-      .subscribe(res => {
-        this.stand_seller=res;
-        console.log("STAN SELLE"+this.stand_seller);
-       // this.standService.getPuesto(this.stand_seller.standId)
-       this.standService.getPuesto(1)
-        .subscribe(res => {
-          console.log(res);
-          this.stand=res;
-          console.log(this.stand);
-        },err =>{
-          console.log(err);
-        }); 
-
-      },err =>{
-        console.log(err);
-      });
-    },err =>{
-      console.log(err);
-    });
-
+    this.stand=this.authenticationService.puesto;
+    this.codigoPuesto=this.stand.standId.toString();
   }
 
 cargarProgreso(){

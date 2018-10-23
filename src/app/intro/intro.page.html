@@ -4,71 +4,37 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content padding>
+ <ion-slides pager="true"  animated="true">
+        <ion-slide *ngFor="let slide of listSlide" >
+            
+            <ion-card>
 
-	 <ion-card>
+                <ion-img [src]="slide.img"></ion-img>
+                
+            
+                <ion-card-content>
+                  <ion-card-title>
+                    {{slide.title}}
+                  </ion-card-title>
+                  <p>
+                    {{slide.desc}}
+                  </p>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+        
+      </ion-slides>
 
-    <img src="assets/img/introPrin.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Björk
-      </ion-card-title>
-      <p>
-        Björk first came to prominence as one of the lead vocalists of the avant pop Icelandic sextet the Sugarcubes, but when...
-      </p>
-    </ion-card-content>
-</ion-card>
-
-
-
-	 <ion-card>
-
-    <img src="assets/img/intro1.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Björk
-      </ion-card-title>
-      <p>
-        Björk first came to prominence as one of the lead vocalists of the avant pop Icelandic sextet the Sugarcubes, but when...
-      </p>
-    </ion-card-content>
-</ion-card>
-
-
- <ion-card>
-
-    <img src="assets/img/intro3.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Björk
-      </ion-card-title>
-      <p>
-        Björk first came to prominence as one of the lead vocalists of the avant pop Icelandic sextet the Sugarcubes, but when...
-      </p>
-    </ion-card-content>
-</ion-card>
-
-	<!--<ion-list>
-		<ion-item>
-			<img src="assets/img/introPrin.jpg"/>
-		</ion-item>
-	
-		<ion-item>
-			<img src="assets/img/intro1.jpg"/>
-		</ion-item>
-		<ion-item>
-			<img src="assets/img/intro3.jpg"/>
-		</ion-item>
-		
-
-	</ion-list>
--->
-
-   Intro Vendedor In
-    <button ion-item (click)="irLogin()">
-            Login 
-    </button>
+   
+      <ion-toolbar>
+          <ion-buttons slot="primary">
+            <ion-button color="primary" [routerLink]="['/introDeta']">
+              {{tittleIng}}
+            </ion-button>
+          </ion-buttons>
+      
+        </ion-toolbar>
+  
 </ion-content>

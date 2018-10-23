@@ -22,9 +22,7 @@ export class HomeProfilePage implements OnInit {
   }
 
   ngOnInit() {
-    this.idUser=this.activateRoute.snapshot.paramMap.get('idUser');
-    console.log("ID USua")
-    console.log(this.idUser)
+    
   }
 
 
@@ -32,17 +30,17 @@ export class HomeProfilePage implements OnInit {
     
      {
       title: 'Datos Básicos',
-      url: `/basicData/${this.idUser}`,	
+      url: "/basicData",	
       //icon: 'pr¿'
     },
     {
       title: 'Datos de Contacto',
-      url: `/contactInformation/${this.idUser}`,
+      url: "/contactInformation",
       //icon: 'list'
     },
     {
       title: 'Condición de vulnerabilidad',
-      url: `/vulnerabilityCondition/${this.idUser}`,
+      url: "/vulnerabilityCondition",
       //icon: 'list'
     }
   ];

@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 
+import { AppSettings } from "../constant";
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:3000/api/stands";
+const apiUrl = AppSettings.API_HOST+"stands";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,6 @@ export class StandService {
 
   getPuesto(idPuesto:any): Observable<any> {
     const url =`${apiUrl}/${idPuesto}`;
-    console.log("URLL" +url);
     return this.http.get(url, httpOptions);
   }
 }

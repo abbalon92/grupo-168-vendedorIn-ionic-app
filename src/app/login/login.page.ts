@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+
+//Services
 import { UsersService } from '../service/users.service';
+import { AuthenticationService } from '../service/authentication.service';
 
 
 @Component({
@@ -12,57 +15,33 @@ import { UsersService } from '../service/users.service';
 export class LoginPage implements OnInit {
 
   title:String="Iniciar Sesión";
+  forgotPass:String="Olvidé mi contraseña";
   usuario:String;
   clave:String;
 
-  forgotPass:String="Olvidé mi contraseña";
-
-   loginOb:any={
-    usuario:"",
-    clave: ""
-  }
   user:any;
-  constructor(private router: Router,public route: ActivatedRoute,public usersService: UsersService,public loadingController: LoadingController) { }
+
+  constructor(private router: Router,public route: ActivatedRoute,public usersService: UsersService,public loadingController: LoadingController,
+               public authenticationService:AuthenticationService) { }
 
   ngOnInit() {
   }
 
-  async consultarUsuario() {
+  async iniciarSesion(){
     const loading = await this.loadingController.create({
-      //content: 'Loading'
+      message: 'Loading'
     });
     await loading.present();
-    console.log("Usua" +this.loginOb.usuario)
-    console.log("Pass" +this.loginOb.clave)
-    await this.usersService.getUsuarioLogin(this.loginOb.usuario,this.loginOb.usuario)
+      await this.usersService.getUsuarioLogin(this.usuario,this.clave)
       .subscribe(res => {
-      
-        console.log(res);
         this.user = res;
+        this.authenticationService.cargar(this.usuario);
+        this.router.navigate(['/home']);
         loading.dismiss();
       }, err => {
-       
-        console.log(err);
-        loading.dismiss();
+       loading.dismiss();
       });
-     
-  }
-
- iniciarSesion():void{
-   //this.consultarUsuario();
-   
-   this.usersService.getUsuarioLogin(this.loginOb.usuario,this.loginOb.clave)
-      .subscribe(res => {
-        console.log("Consulto")
-        console.log(res);
-        this.user = res;
-        this.router.navigate(['/home/123']);
-      }, err => {
-        console.log("No Consulto")
-        console.log(err);
-      });
-	 
-  }
+}
 
   olvideMiClave():void{
   
