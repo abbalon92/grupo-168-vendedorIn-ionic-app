@@ -20,19 +20,21 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
   { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' },
-  { path: 'homeProfile/:idUser', loadChildren: './home-profile/home-profile.module#HomeProfilePageModule' },
-  { path: 'basicData/:idUser', loadChildren: './basic-data/basic-data.module#BasicDataPageModule' },
-  { path: 'contactInformation/:idUser', loadChildren: './contact-information/contact-information.module#ContactInformationPageModule' },
-  { path: 'vulnerabilityCondition/:idUser', loadChildren: './vulnerability-condition/vulnerability-condition.module#VulnerabilityConditionPageModule' },
-  { path: 'stand/:idUser', loadChildren: './stand/stand.module#StandPageModule' },
-  { path: 'myAudit/:idPuesto', loadChildren: './my-audit/my-audit.module#MyAuditPageModule' },
+  { path: 'homeProfile', loadChildren: './home-profile/home-profile.module#HomeProfilePageModule' },
+  { path: 'basicData', loadChildren: './basic-data/basic-data.module#BasicDataPageModule' },
+  { path: 'contactInformation', loadChildren: './contact-information/contact-information.module#ContactInformationPageModule' },
+  { path: 'vulnerabilityCondition', loadChildren: './vulnerability-condition/vulnerability-condition.module#VulnerabilityConditionPageModule' },
+  { path: 'stand', loadChildren: './stand/stand.module#StandPageModule' },
+  { path: 'myAudit', loadChildren: './my-audit/my-audit.module#MyAuditPageModule' },
   { path: 'training', loadChildren: './training/training.module#TrainingPageModule' },
   { path: 'foodManagement', loadChildren: './food-management/food-management.module#FoodManagementPageModule' },
   { path: 'itManagement', loadChildren: './it-management/it-management.module#ItManagementPageModule' },
   { path: 'hygieneManagement', loadChildren: './hygiene-management/hygiene-management.module#HygieneManagementPageModule' },
   { path: 'financeManagement', loadChildren: './finance-management/finance-management.module#FinanceManagementPageModule' },
   { path: 'clothesManagement', loadChildren: './clothes-management/clothes-management.module#ClothesManagementPageModule' },
-  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' }
+  { path: 'digitalMarket', loadChildren: './digital-market/digital-market.module#DigitalMarketPageModule' },  { path: 'newUser', loadChildren: './new-user/new-user.module#NewUserPageModule' },
+  { path: 'introDeta', loadChildren: './intro-deta/intro-deta.module#IntroDetaPageModule' }
+
 
 
 ];

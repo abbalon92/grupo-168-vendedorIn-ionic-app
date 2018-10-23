@@ -3,6 +3,9 @@ import {ActivatedRoute} from '@angular/router';
 import { MyAuditService } from '../service/my-audit.service';
 import { AlertController } from '@ionic/angular';
 
+//Services
+import {AuthenticationService}  from '../service/authentication.service';
+
 
 @Component({
   selector: 'app-my-audit',
@@ -16,11 +19,10 @@ export class MyAuditPage implements OnInit {
   idPuesto:any;
   label:String="Auditoria No. ";
 
-  constructor(private myAuditService:MyAuditService,private activateRoute:ActivatedRoute,public alertCtrl: AlertController) { }
+  constructor(private myAuditService:MyAuditService,public alertCtrl: AlertController,private authenticationService:AuthenticationService) { }
 
   ngOnInit() {
-    this.idPuesto=this.activateRoute.snapshot.paramMap.get('idPuesto')
-    console.log("Audi" +this.idPuesto);
+    this.idPuesto=this.authenticationService.idPuesto;
     this.cargarMisAuditorias();
   }
 
@@ -35,8 +37,6 @@ export class MyAuditPage implements OnInit {
   }
 
   async seleccionarAuditoria(auditoria: any){
-
-    console.log(auditoria);
     const alert =await  this.alertCtrl.create({
       header:  this.label + auditoria.auditId,
       message: 'Su evaluación promedio fue de :' + auditoria.auditScore ,

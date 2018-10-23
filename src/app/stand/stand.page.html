@@ -18,8 +18,6 @@
 		</ion-card-content>
 	</ion-card>
 
-
-
 	<ion-card>
 		<ion-card-content>
 			<ion-list>
@@ -27,26 +25,26 @@
 					<ion-label>El código de su puesto es:</ion-label>
 				</ion-item>
 				<ion-item>
-					<ion-label> <b>{{stand.standId}}</b></ion-label>
+					<ion-label> <b>{{stand[0].standId}}</b></ion-label>
 				</ion-item>
 				<ion-item>
 					<ion-label>Dirección</ion-label>
-					<ion-label> <b>{{stand.address}}</b></ion-label>
+					<ion-label> <b>{{stand[0].address}}</b></ion-label>
 				</ion-item>
 				<ion-item>
 					<ion-label>Localidad</ion-label>
-					<ion-label><b>{{stand.locationLocationId}}</b></ion-label>
+					<ion-label><b>{{stand[0].locationLocationId}}</b></ion-label>
 				</ion-item>
 				<ion-item>
 					<ion-label>Contacto</ion-label>
-					<ion-label> <b>##</b></ion-label>
+					<ion-label> <b>{{stand[0].contactName}}</b></ion-label>
 				</ion-item>
 				<ion-item>
 					<ion-label>Tel. Contacto</ion-label>
-					<ion-label> <b>####</b></ion-label>
+					<ion-label> <b>{{stand[0].photeName}}</b></ion-label>
 				</ion-item>
 			</ion-list>
 		</ion-card-content>
 	</ion-card>
-	<ion-button expand="block" color="primary" [routerLink]="['/myAudit',stand.standId]" >Ver Auditorias</ion-button>
+	<ion-button expand="block" color="primary" [routerLink]="['/myAudit']" >Ver Auditorias</ion-button>
 </ion-content>

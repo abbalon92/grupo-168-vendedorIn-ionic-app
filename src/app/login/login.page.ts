@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 
-//Page
-import {HomePage} from '../home/home.page';
-
-//Service
+//Services
 import { UsersService } from '../service/users.service';
+import { AuthenticationService } from '../service/authentication.service';
 
 
 @Component({
@@ -24,7 +22,7 @@ export class LoginPage implements OnInit {
   user:any;
 
   constructor(private router: Router,public route: ActivatedRoute,public usersService: UsersService,public loadingController: LoadingController,
-              public homePage:HomePage) { }
+               public authenticationService:AuthenticationService) { }
 
   ngOnInit() {
   }
@@ -34,11 +32,14 @@ export class LoginPage implements OnInit {
       message: 'Loading'
     });
     await loading.present();
+    console.log(this.usuario);
      await this.usersService.getUsuarioLogin(this.usuario,this.clave)
       .subscribe(res => {
         this.user = res;
-        this.homePage.cargarHome(this.usuario);
-        //this.router.navigate(['/home']);
+        console.log("Login");
+        console.log(this.user);
+        this.authenticationService.cargar(this.usuario);
+        this.router.navigate(['/home']);
         loading.dismiss();
       }, err => {
        loading.dismiss();
