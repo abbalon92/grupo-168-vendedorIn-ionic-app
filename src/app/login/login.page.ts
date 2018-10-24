@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+
+//Services
+import { UsersService } from '../service/users.service';
+import { AuthenticationService } from '../service/authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -8,17 +14,37 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router) { }
+  title:String="Iniciar Sesión";
+  forgotPass:String="Olvidé mi contraseña";
+  usuario:String;
+  clave:String;
+
+  user:any;
+
+  constructor(private router: Router,public route: ActivatedRoute,public usersService: UsersService,public loadingController: LoadingController,
+               public authenticationService:AuthenticationService) { }
 
   ngOnInit() {
   }
 
- iniciarSesion():void{
-	 this.router.navigate(['/home']);
-  }
+  async iniciarSesion(){
+    const loading = await this.loadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+      await this.usersService.getUsuarioLogin(this.usuario,this.clave)
+      .subscribe(res => {
+        this.user = res;
+        this.authenticationService.cargar(this.usuario);
+        this.router.navigate(['/home']);
+        loading.dismiss();
+      }, err => {
+       loading.dismiss();
+      });
+}
 
   olvideMiClave():void{
-  //this.navCtrl.push();
+  
   }
 
 }

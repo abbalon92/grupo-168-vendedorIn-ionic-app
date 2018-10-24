@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { error } from 'util';
-
-
+import { AlertsClass } from "../alerts";
+//import para el componente que genera los QR
+import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-check-seller',
@@ -13,31 +12,30 @@ import { error } from 'util';
 export class CheckSellerPage implements OnInit {
 
   title:string="Comprobar certificado";
-  CapturedImageURL:string="";
-  constructor(private camera:Camera,
-    public storage:NativeStorage ) { }
-
   
+  qrData;
+  createdCode;
+  scannedCode;
+
+  constructor(
+    private alert:AlertsClass,
+    private barcodeScanner:BarcodeScanner,
+    public qrgeneratorPage:QrgeneratorPage
+    ) { }
 
   ngOnInit() {
   }
-
-  getPhoto(){
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    }
-    
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     this.CapturedImageURL = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
-    });
+  
+  creaateCode(){
+    this.createdCode=this.qrData;
   }
 
+  scanCode(){
+    this.barcodeScanner.scan().then(barcodeData=>{
+      this.scannedCode=barcodeData.text;
+    }).catch(err=>{
+      this.alert.simpleAlert('el error es: '+err);
+    });
+  }
 
 }

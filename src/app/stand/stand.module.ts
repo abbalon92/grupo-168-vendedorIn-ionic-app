@@ -6,6 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { StandPage } from './stand.page';
+//Import qr
+import { NgxQRCodeModule } from "ngx-qrcode2";
+import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
+
 
 const routes: Routes = [
   {
@@ -19,8 +23,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxQRCodeModule
   ],
-  declarations: [StandPage]
+  declarations: [StandPage,QrgeneratorPage]
 })
 export class StandPageModule {}

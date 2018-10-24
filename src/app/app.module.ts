@@ -10,23 +10,33 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+import { AlertsClass } from "./alerts";
+import { QrgeneratorPage } from "./qrgenerator/qrgenerator.page";
+import { NgxQRCodeModule } from "ngx-qrcode2";
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxQRCodeModule
+  
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    NativeStorage
+    QRScanner,
+    AlertsClass,
+    BarcodeScanner,
+    QrgeneratorPage
   ],
   bootstrap: [AppComponent]
 })

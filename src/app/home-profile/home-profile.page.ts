@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home-profile',
@@ -8,43 +9,43 @@ import { Router } from '@angular/router';
 })
 export class HomeProfilePage implements OnInit {
 
-  constructor(private router: Router) { }
+  title:String="Mi Perfil";
+  vendedor:object={
+    nombre:"Murat Mutlu",
+    rol: "Comerciante"
+  }
+  idUser:any;
+
+
+  constructor(private router: Router,private activateRoute: ActivatedRoute) {
+    
+  }
 
   ngOnInit() {
+    
   }
 
 
- public appPages = [
+ public menuProfile = [
     
      {
-      title: 'Mi Perfil',
-      url: '/homeProfile'
+      title: 'Datos Básicos',
+      url: "/basicData",	
       //icon: 'pr¿'
     },
     {
-      title: 'Salir',
-      url: '/login',
+      title: 'Datos de Contacto',
+      url: "/contactInformation",
+      //icon: 'list'
+    },
+    {
+      title: 'Condición de vulnerabilidad',
+      url: "/vulnerabilityCondition",
       //icon: 'list'
     }
   ];
 
-   openModal(characterNum: number) {
-   	
-   	 console.log(characterNum);
-   	if(characterNum== 0){
-   		this.router.navigate(['/basicData']);
-   	}if(characterNum==1){
-   		this.router.navigate(['/contactInformation']);
-   	}if(characterNum==2){
-   		this.router.navigate(['/vulnerabilityCondition']);
-   	}
-   // let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    //modal.present();
-  }
-
-   regresar():void{
-	 this.router.navigate(['/home']);
-  }
-
+  
+  
 
 }

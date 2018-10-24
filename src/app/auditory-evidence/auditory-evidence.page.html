@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>auditory-evidence</ion-title>
-  </ion-toolbar>
+    <ion-buttons slot='start'>
+        <ion-back-button ></ion-back-button>
+    </ion-buttons>
+  <ion-title>{{title}}</ion-title>
+</ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <p>
+    Para finalizar la auditoria debe añadir evidencia fotografica
+  </p>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="getPhoto()">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-list>
+      <ion-item *ngFor="let foto of CapturedImageURL" >
+        <ion-img [src]="foto" ></ion-img>
+        {{foto}}
+      </ion-item>
+    </ion-list>
+    <ion-button color="primary" expand="block" (click)="enviar()" >Enviar</ion-button>
 </ion-content>
