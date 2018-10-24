@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./food-management.page.scss'],
 })
 export class FoodManagementPage implements OnInit {
-
+	titlePage:string = "Manipulación de Alimentos";
   constructor() { }
 
   ngOnInit() {

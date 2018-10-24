@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertsClass } from "../alerts";
+//import para el componente que genera los QR
+import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-check-seller',
@@ -8,17 +12,32 @@ import { Component, OnInit } from '@angular/core';
 export class CheckSellerPage implements OnInit {
 
   title:string="Comprobar certificado";
-  constructor( ) { }
+  
+  qrData;
+  createdCode;
+  scannedCode;
+
+  constructor(
+    private alert:AlertsClass,
+    private barcodeScanner:BarcodeScanner,
+    public qrgeneratorPage:QrgeneratorPage
+    ) { }
 
   ngOnInit() {
   }
 
-  createCode(){
-    
+  creaateCode(){
+    this.createdCode=this.qrData;
   }
 
   scanCode(){
-
+    this.barcodeScanner.scan().then(barcodeData=>{
+      this.scannedCode=barcodeData.text;
+    }).catch(err=>{
+      this.alert.simpleAlert('el error es: '+err);
+    });
   }
+
+ 
 
 }

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+//Services
+import { UsersService } from '../service/users.service';
+import { AuthenticationService } from '../service/authentication.service';
 
 
 @Component({
@@ -9,17 +15,71 @@ import { Router } from '@angular/router';
 })
 export class BasicDataPage implements OnInit {
 
-    constructor(private router: Router) { }
+  title: String = "Datos Básicos"
+  user: any;
+  actualiza:Boolean;
+
+  tipoIdentificacion = [
+    { id: "1", descripcion: "Cédula" },
+    { id: "2", descripcion: "Cédula de Extranjeria" },
+    { id: "3", descripcion: "Pasaporte" }
+  ];
+
+  generos = [
+    { id: "1", descripcion: "Femenino" },
+    { id: "2", descripcion: "Masculino" }
+  ];
+
+
+  constructor(private router: Router, private activateRoute: ActivatedRoute, private usersService: UsersService, private authenticationService: AuthenticationService, public alertCtrl: AlertController,private loadingController: LoadingController) {
+
+  }
 
   ngOnInit() {
+    this.cargarDatosUsuario();
   }
 
-  guardar():void{
-	 this.router.navigate(['/homeProfile']);
+  cargarDatosUsuario() {
+    this.user = this.authenticationService.usuario;
   }
 
-  regresar():void{
-	 this.router.navigate(['/homeProfile']);
+  async guardar() {
+    
+    const loading = await this.loadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+     this.usersService.actualizarUsuario(this.user)
+    .subscribe(() => {
+      this.actualiza=true;
+      this.authenticationService.cargarUsuario();
+      this.router.navigate(['/homeProfile']);
+      loading.dismiss();
+    }, err => {
+      this.actualiza=false;
+      console.log(err);
+     loading.dismiss();
+    });
+
+
+    if(this.actualiza){
+     
+      const alert = await this.alertCtrl.create({
+        message: 'Se ha actualizando correctante.',
+        buttons: ['OK']
+      });
+       await alert.present();
+      this.authenticationService.cargarUsuario();
+      this.router.navigate(['/homeProfile']);
+    }else{
+      
+      const alert = await this.alertCtrl.create({
+        message: 'Se ha presentado un error. Comuniquese con el administrador.',
+        buttons: ['OK']
+      });
+    }
+
   }
+
 
 }

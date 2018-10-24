@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot='start'>
+			 <ion-back-button></ion-back-button>
+		 </ion-buttons>
+	   <ion-title>{{title}}</ion-title>
+	 </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-label position="floating">No. Identificación*</ion-label>
+			<ion-input [(ngModel)]="user.userId" ></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Tipo de Identificación*</ion-label>
+			<ion-select [(ngModel)]="user.documentTypeId">
+			<ion-select-option *ngFor="let t of tipoIdentificacion" value="{{t.id}}">{{t.descripcion}}</ion-select-option>
+				
+			</ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Nombres*</ion-label>
+			<ion-input [(ngModel)]="user.fullName"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Apellidos*</ion-label>
+			<ion-input [(ngModel)]="user.lastNames"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Fecha Nacimiento*</ion-label>
+			<ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" [(ngModel)]="user.birthdate"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Género*</ion-label>
+			<ion-select [(ngModel)]="user.genderId">
+				<ion-select-option *ngFor="let g of listaGenero" value="{{g.genderId}}">{{g.description}}</ion-select-option>
+			</ion-select>
+    </ion-item>
+    <ion-item>
+			<ion-label position="floating">Correo Electrónico*</ion-label>
+			<ion-input multiple="true" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+	  <ion-label position="floating">Contraseña*</ion-label>
+      <ion-input type="password"  [(ngModel)]="user.password"> </ion-input>
+    </ion-item>
+	</ion-list>
+	<ion-button expand="block" color="primary" (click)="guardar()">{{title_save}}</ion-button>
+</ion-content>

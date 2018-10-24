@@ -8,15 +8,20 @@
 </ion-header>
 
 <ion-content padding>
-<p>Acerque el escaner al codigo QR del puesto generado por el comerciante para comprobar la utenticidad del mismo.</p>
-<ion-card [routerLink]="['/auditory-stand-info']">
-  <ion-title>
-    espacion para el escaner por qr
-  </ion-title>
-  <ion-content>
-    <p>
-      en este espacion para a estar el esaner por QR
-    </p>
-  </ion-content>
+<p>Acerque el escaner al codigo QR del puesto generado por el comerciante para comprobar la utenticidad del puesto.</p>
+<ion-item>
+    <ion-input type="text" placeholder="My Qr data" [(ngModel)]="qrData"></ion-input>
+</ion-item>
+<ion-button color="primary" (click)="creaateCode()" >Generate code</ion-button>
+<ion-button color="primary" (click)="scanCode()" >Scan code</ion-button>
+
+<app-qrgenerator [codigoqr]="createdCode" ></app-qrgenerator>
+
+<ion-card>
+  <ion-card-content>
+    Result from Scan:{{scannedCode}}
+  </ion-card-content>
 </ion-card>
+
+<ion-button color="primary" [routerLink]="['/auditory-stand-info']" >siguiente</ion-button>
 </ion-content>
