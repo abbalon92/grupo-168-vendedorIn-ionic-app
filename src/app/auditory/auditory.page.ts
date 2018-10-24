@@ -30,7 +30,7 @@ export class AuditoryPage implements OnInit {
    }
 
   ngOnInit() {
-    this.getDocuments();
+    //this.getDocuments();
   }
 
   public async getDocuments() {

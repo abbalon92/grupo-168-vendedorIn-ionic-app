@@ -25,7 +25,7 @@ export class CheckSellerPage implements OnInit {
 
   ngOnInit() {
   }
-
+  
   creaateCode(){
     this.createdCode=this.qrData;
   }
@@ -37,7 +37,5 @@ export class CheckSellerPage implements OnInit {
       this.alert.simpleAlert('el error es: '+err);
     });
   }
-
- 
 
 }
