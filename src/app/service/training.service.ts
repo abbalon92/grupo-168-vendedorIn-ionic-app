@@ -22,6 +22,21 @@ export class TrainingService {
         const url = `${apiUrl}/${id}`;
         return this.http.get(url, httpOptions);
       }
+
+      getTrainings(id:any) {
+        return new Promise(resolve => {
+          const url = `${apiUrl}/${id}`;
+          this.http.get(url).subscribe(data => {
+            resolve(data);
+          }, err => {
+            console.log(err);
+          });
+        });
+      }
+
+
+     
+
     
       crearTraining(capacitacion:any){
         return this.http.post(apiUrl, JSON.stringify(capacitacion), httpOptions);
