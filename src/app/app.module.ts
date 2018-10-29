@@ -26,7 +26,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     AppRoutingModule,
     HttpClientModule,
     NgxQRCodeModule
-  
+
   ],
   providers: [
     StatusBar,
@@ -35,8 +35,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     Camera,
     QRScanner,
     AlertsClass,
-    BarcodeScanner,
-    QrgeneratorPage
+    BarcodeScanner
   ],
   bootstrap: [AppComponent]
 })

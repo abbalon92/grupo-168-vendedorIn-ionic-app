@@ -9,7 +9,13 @@
 
 <ion-content padding>
   <ion-tabs tabbar-placement="top">
-    <ion-tab label='Basico' selectedTab="true">
+    <ion-card >
+        <ion-img src="/assets/img/auditoria-inicio.jpg"></ion-img>
+      <ion-card-content>
+        Bienvenido al cuestionario de auditorias, por favor diligencie las preguntas de cada pestaña y para terminar pulse finalizar en la ultima pestaña. Recuerde que es requerida evidencia fotografica para finallizar la auditoria.
+      </ion-card-content>
+    </ion-card>
+    <ion-tab label='Basico' tabbar-highlight="true" selected-tab="true">
       <ion-list >
       <ion-list-header>Preguntas Basicas del puesto</ion-list-header>
         <ion-item *ngFor="let preguntas of preguntasBasico">

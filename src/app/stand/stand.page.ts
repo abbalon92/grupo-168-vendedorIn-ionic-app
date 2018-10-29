@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 import {ActivatedRoute} from '@angular/router';
 //import QR
-import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { NgxQRCodeModule } from "ngx-qrcode2";
 
@@ -33,11 +32,13 @@ export class StandPage implements OnInit {
   codigoPuesto:string;
   constructor(private router: Router, public sellerService: SellerService, private activateRoute: ActivatedRoute ,
      private standSellerService:StandSellerService,private standService:StandService,public authenticationService:AuthenticationService,
-     private barcodeScanner:BarcodeScanner,
-     public qrgeneratorPage:QrgeneratorPage) { }
+     private barcodeScanner:BarcodeScanner) { }
 
   ngOnInit() {
     this.stand=this.authenticationService.puesto;
+    console.log("Puesto");
+    console.log(this.stand);
+
     this.codigoPuesto=this.stand.standId.toString();
   }
 
