@@ -13,7 +13,7 @@ export class DocumentTypeService {
   constructor(private http: HttpClient) { }
 
   public getData(): Observable<any> {
-    return this.http.get(apiUrl);
+    return this.http.get(apiUrl,);
   }
 
 }
