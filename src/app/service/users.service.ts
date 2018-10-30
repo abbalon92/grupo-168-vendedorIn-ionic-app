@@ -23,7 +23,13 @@ export class UsersService {
 //    $http.post(api_url+'post/user/login?username='+data.username+'&password='+data.password).then(function(resp){
   //const params = new HttpParams().set('userId', id).set('password',clave);
     //const url = `${apiUrl}?filter=[userId]=${id}&filter[password]=${clave}`;
-    const url = `${apiUrl}/${id}`;
+
+    //accounts?filter[where][name]=John&filter[limit]=3
+
+    const url = `${apiUrl}?filter[where][userId]=${id}&filter[password]=${clave}`;
+    //const url = `${apiUrl}/${id}`;
+    console.log("Url");
+    console.log(url);
     return this.http.get(url,httpOptions);
   }
 
@@ -54,9 +60,7 @@ export class UsersService {
 
   actualizarUsuario(usuario:any){
     const url = `${apiUrl}/${usuario.userId}`;
-    console.log("urll use");
-    console.log(usuario);
-    return this.http.put(url, usuario, httpOptions) .pipe(
+   return this.http.put(url, usuario, httpOptions) .pipe(
       
       catchError(this.handleError)
       

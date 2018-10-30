@@ -6,17 +6,19 @@
 <ion-content padding>
 <ion-card>
   <ion-card-header>
-    <ion-card-title id="centerAlign">Nivel 1</ion-card-title>
-    <ion-card-subtitle>Titulo</ion-card-subtitle>
+    <ion-card-title id="centerAlign">{{courses.courseName}}</ion-card-title>
+    <ion-card-subtitle></ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
     <ion-img src="assets/img/gestionR.jpg"></ion-img>
     <ion-item>
-  <ion-label id="justifiedAlign" text-wrap>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </ion-label>
+  <ion-label id="justifiedAlign" text-wrap>{{courses.courseDescription}} </ion-label>
 </ion-item>
-  <ion-button color="primary" expand="block" href-inappbrowser="https://www.youtube.com">Ver la capacitación</ion-button>
+  <ion-button color="primary" expand="block" href-inappbrowser={{courses.courseLink}}>Ver la capacitación</ion-button>
   </ion-card-content>
 </ion-card>
+<!--
+
 <ion-card>
   <ion-card-header>
     <ion-card-title id="centerAlign">Nivel 2</ion-card-title>
@@ -27,7 +29,7 @@
     <ion-item>
   <ion-label id="justifiedAlign" text-wrap>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </ion-label>
 </ion-item>
-  <ion-button color="primary" expand="block" href-inappbrowser="https://www.youtube.com/">Ver la capacitación</ion-button>
+  <ion-button color="primary" expand="block" href-inappbrowser="https://www.youtube.com/watch?v=EkfiWMLBVjU">Ver la capacitación</ion-button>
   </ion-card-content>
 </ion-card>
 <ion-card>
@@ -43,5 +45,7 @@
   <ion-button color="primary" expand="block" href-inappbrowser="https://www.youtube.com/">Ver la capacitación</ion-button>
   </ion-card-content>
 </ion-card>
+
+-->
 </ion-content>
 

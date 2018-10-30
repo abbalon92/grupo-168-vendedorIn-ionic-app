@@ -19,13 +19,25 @@ export class CourseService {
   constructor(private http: HttpClient) { }
   
   
-
-  getCurso(id:any): Observable<any> {
+/*
+  getCourse(id:any): Observable<any> {
     const URL = `${apiUrl}/${id}`;
     return this.http.get(URL, httpOptions);
   }
+  */
 
-  crearCurso(curso:any){
+  getCourse(id:any) {
+    return new Promise(resolve => {
+      const url = `${apiUrl}/${id}`;
+      this.http.get(url).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  createCourse(curso:any){
     return this.http.post(apiUrl, JSON.stringify(curso), httpOptions);
   }
 

@@ -16,7 +16,7 @@
 		<ion-item>
 			<ion-label position="floating">Tipo de Identificación*</ion-label>
 			<ion-select [(ngModel)]="user.documentTypeId">
-			<ion-select-option *ngFor="let t of tipoIdentificacion" value="{{t.id}}">{{t.descripcion}}</ion-select-option>
+			<ion-select-option *ngFor="let t of listaTipoIdentifica" value="{{t.documentTypeId}}">{{t.description}}</ion-select-option>
 				
 			</ion-select>
 		</ion-item>
