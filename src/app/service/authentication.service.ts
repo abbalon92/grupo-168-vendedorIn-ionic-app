@@ -43,8 +43,6 @@ export class AuthenticationService {
       .subscribe(res => {
         this.vendedor = res[0];
         this.idVendedor = this.vendedor.sellerId;
-        console.log("Vende Servicio");
-        console.log(this.vendedor);
       }, err => {
 
       });
@@ -56,9 +54,7 @@ export class AuthenticationService {
       .subscribe(res => {
         this.puesto = res[0];
         this.idPuesto = this.puesto.standId;
-        console.log("Puesto");
-        console.log(this.puesto);
-      }, err => {
+            }, err => {
 
       });
   }

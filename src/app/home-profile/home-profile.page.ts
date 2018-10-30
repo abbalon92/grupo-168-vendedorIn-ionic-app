@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 
+//Servicios
+import { AuthenticationService} from '../service/authentication.service';
+
 @Component({
   selector: 'app-home-profile',
   templateUrl: './home-profile.page.html',
@@ -10,19 +13,16 @@ import {ActivatedRoute} from '@angular/router';
 export class HomeProfilePage implements OnInit {
 
   title:String="Mi Perfil";
-  vendedor:object={
-    nombre:"Murat Mutlu",
-    rol: "Comerciante"
-  }
+  user:any;
   idUser:any;
 
 
-  constructor(private router: Router,private activateRoute: ActivatedRoute) {
+  constructor(private router: Router,private activateRoute: ActivatedRoute,private authenticationService:AuthenticationService) {
     
   }
 
   ngOnInit() {
-    
+    this.user=this.authenticationService.cargarUsuario();
   }
 
 
