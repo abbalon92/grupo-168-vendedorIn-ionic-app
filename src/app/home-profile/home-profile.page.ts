@@ -22,7 +22,7 @@ export class HomeProfilePage implements OnInit {
   }
 
   ngOnInit() {
-    this.user=this.authenticationService.cargarUsuario();
+    this.user=this.authenticationService.usuario;
   }
 
 

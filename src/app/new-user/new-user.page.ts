@@ -37,6 +37,8 @@ export class NewUserPage implements OnInit {
 
   ngOnInit() {
     this.listaTipoIdentifica=this.listService.listaTipoIdentifica
+    console.log("TIp S");
+    console.log(this.listaTipoIdentifica);
     this.listaGenero=this.listService.listaGeneros;
     }
 

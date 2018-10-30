@@ -27,6 +27,8 @@ export class ListService {
     this.documentTypeService.getData()
       .subscribe(res => {
         this.listaTipoIdentifica = res;
+        console.log("Tipo Identifi");
+        console.log(this.listaTipoIdentifica);
       }, err => {
 
       });
