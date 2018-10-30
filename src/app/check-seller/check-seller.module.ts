@@ -5,8 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CheckSellerPage } from './check-seller.page';
 import { IonicModule } from '@ionic/angular';
 //Import para el funcionamiento del componente que imprime el qr
-import { NgxQRCodeModule } from "ngx-qrcode2";
-import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
+//import { NgxQRCodeModule } from "ngx-qrcode2";
+//import { QrgeneratorPage } from "../qrgenerator/qrgenerator.page";
 
 const routes: Routes = [
   {
@@ -20,12 +20,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    NgxQRCodeModule
+    RouterModule.forChild(routes)
+    //NgxQRCodeModule
   ],
   declarations: [
     CheckSellerPage,
-    QrgeneratorPage
+    //QrgeneratorPage
   ]
 })
 export class CheckSellerPageModule {}
