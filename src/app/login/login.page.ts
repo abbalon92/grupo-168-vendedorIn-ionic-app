@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 
+import { AlertController } from '@ionic/angular';
+
+
 //Services
 import { UsersService } from '../service/users.service';
 import { AuthenticationService } from '../service/authentication.service';
@@ -22,9 +25,17 @@ export class LoginPage implements OnInit {
   user:any;
 
   constructor(private router: Router,public route: ActivatedRoute,public usersService: UsersService,public loadingController: LoadingController,
-               public authenticationService:AuthenticationService) { }
+               public authenticationService:AuthenticationService,private alertCtrl: AlertController) { }
 
   ngOnInit() {
+  }
+
+  async mensaje(){
+    const alert = await this.alertCtrl.create({
+      message: 'Usuario o contraseña no validos.',
+      buttons: ['OK']
+    });
+     await alert.present(); 
   }
 
   async iniciarSesion(){
@@ -35,8 +46,13 @@ export class LoginPage implements OnInit {
       await this.usersService.getUsuarioLogin(this.usuario,this.clave)
       .subscribe(res => {
         this.user = res;
-        this.authenticationService.cargar(this.usuario);
-        this.router.navigate(['/home']);
+        if(this.user.length !=0){
+          this.authenticationService.cargar(this.usuario);
+          this.router.navigate(['/home']);
+          loading.dismiss();
+        }else{
+          this.mensaje();
+        }
         loading.dismiss();
       }, err => {
        loading.dismiss();
